@@ -1,9 +1,13 @@
 ﻿@page "/"
 
-@using BlazorWASM.BasicsDemo.Pages._1HelloWorld;
+<div class="container py-2 shadow">
+	<div class="mb-3">
+		<HelloWorld UserName="Sri Varu"></HelloWorld>
+	</div>
 
-<HelloWorld UserName="Sri Varu"></HelloWorld>
+	<div>
+		<RoutingDemo></RoutingDemo>
+	</div>
 
-@*Welcome to your new app.
+</div>
 
-<SurveyPrompt Title="How is Blazor working for you?" />*@

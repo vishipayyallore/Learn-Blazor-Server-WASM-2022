@@ -1,10 +1,9 @@
-﻿body {
-}
-
-h3 {
+﻿h3 {
     color: blueviolet;
 }
 
 .page-title {
     background-color: honeydew;
+    border: solid;
+    border-color: forestgreen;
 }
