@@ -1,20 +1,15 @@
 ﻿using BlazorWASM.BasicsDemo.Model;
+using BlazorWASM.BasicsDemo.Services;
 
 namespace BlazorWASM.BasicsDemo.Pages._5TwoWayDataBinding
 {
-    public partial class HotelDemo2
+    public partial class TwoWayDataBindingDemo
     {
         public HotelRoom DemoRoom { get; set; } = new();
 
         protected override void OnInitialized()
         {
-            DemoRoom = new HotelRoom
-            {
-                Id = 1,
-                RoomName = "Villa Suite",
-                IsActive = true,
-                Price = 499
-            };
+            DemoRoom = HotelRoomSerivce.GetDemoRoom();
         }
     }
 }

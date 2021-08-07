@@ -1,4 +1,6 @@
-﻿namespace BlazorWASM.BasicsDemo.Model
+﻿using System.Collections.Generic;
+
+namespace BlazorWASM.BasicsDemo.Model
 {
 
     public class HotelRoom
@@ -10,6 +12,8 @@
         public double Price { get; set; }
 
         public bool IsActive { get; set; }
+
+        public List<HotelRoomProperty> RoomProperties { get; set; }
     }
 
 }

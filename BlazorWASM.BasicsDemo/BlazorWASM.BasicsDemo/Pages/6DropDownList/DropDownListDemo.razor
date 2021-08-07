@@ -7,12 +7,31 @@
 	<p class="mx-2">Price: @DemoRoom.Price</p>
 
 	<div class="mx-2 my-2 px-2 py-2">
-		<input type="number" @bind-value="DemoRoom.Price" @bind-value:event="oninput" />
-		<br />
-		<input class="py-2" type="checkbox" @bind-value="DemoRoom.IsActive" checked="@(DemoRoom.IsActive ? "checked" : null)" /> <span> Is Active</span>
-		<br />
-		<span>This room is @(DemoRoom.IsActive ? "Active" : "Inactive")</span>
-		<br />
+		<div class="mb-2">
+			<input type="number" @bind-value="DemoRoom.Price" @bind-value:event="oninput" />
+		</div>
+
+		<div>
+			<input type="checkbox" @bind-value="DemoRoom.IsActive" checked="@(DemoRoom.IsActive ? "checked" : null)" /> <span> Is Active</span>
+			<p>
+				<span>This room is @(DemoRoom.IsActive ? "Active" : "Inactive")</span>
+			</p>
+		</div>
+
+		<div>
+			<select @bind="RoomPropertySelected">
+				@foreach(var property in DemoRoom.RoomProperties)
+				{
+					<option value="@property.Name">@property.Name</option>
+				}
+			</select>
+
+			<p>
+				<span>This room property selected is @RoomPropertySelected</span>
+			</p>
+		</div>
+
+
 	</div>
 
 </div>
