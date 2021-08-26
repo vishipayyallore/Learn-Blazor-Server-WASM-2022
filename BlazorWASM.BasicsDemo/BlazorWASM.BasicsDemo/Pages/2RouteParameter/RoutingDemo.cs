@@ -10,7 +10,7 @@ namespace BlazorWASM.BasicsDemo.Pages._2RouteParameter
 
         protected override void OnInitialized()
         {
-            Username = Username ?? "No Name";
+            Username ??= "No Name";
         }
 
     }
