@@ -7,9 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{9BE923
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{612AD744-D277-4F77-A762-EDB31B9FA06C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloBlazor.ServerApp", "Source\HelloBlazor.ServerApp\HelloBlazor.ServerApp.csproj", "{248CC3B5-DE05-4294-B13D-5EB1A2C574C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloBlazor.ServerApp", "Source\HelloBlazor.ServerApp\HelloBlazor.ServerApp.csproj", "{248CC3B5-DE05-4294-B13D-5EB1A2C574C8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloBlazor.ServerApp.E2E", "Tests\HelloBlazor.ServerApp.E2E\HelloBlazor.ServerApp.E2E.csproj", "{97AD11A2-64EB-491F-9E28-A321D7D2AB68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelloBlazor.ServerApp.E2E", "Tests\HelloBlazor.ServerApp.E2E\HelloBlazor.ServerApp.E2E.csproj", "{97AD11A2-64EB-491F-9E28-A321D7D2AB68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloBlazorServerApp.E2ETests", "Tests\HelloBlazorServerApp.E2ETests\HelloBlazorServerApp.E2ETests.csproj", "{E545CCC7-9A0F-40DC-80E4-3E95635D4275}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,10 @@ Global
 		{97AD11A2-64EB-491F-9E28-A321D7D2AB68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97AD11A2-64EB-491F-9E28-A321D7D2AB68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97AD11A2-64EB-491F-9E28-A321D7D2AB68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E545CCC7-9A0F-40DC-80E4-3E95635D4275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E545CCC7-9A0F-40DC-80E4-3E95635D4275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E545CCC7-9A0F-40DC-80E4-3E95635D4275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E545CCC7-9A0F-40DC-80E4-3E95635D4275}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +38,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{248CC3B5-DE05-4294-B13D-5EB1A2C574C8} = {9BE923FC-0798-4AA4-B490-C0729D7F17C2}
 		{97AD11A2-64EB-491F-9E28-A321D7D2AB68} = {612AD744-D277-4F77-A762-EDB31B9FA06C}
+		{E545CCC7-9A0F-40DC-80E4-3E95635D4275} = {612AD744-D277-4F77-A762-EDB31B9FA06C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9B91A940-E0D3-40A9-873F-71BFBA52302C}
