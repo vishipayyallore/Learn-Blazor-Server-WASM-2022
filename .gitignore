@@ -348,3 +348,4 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+BlazorServerPlaywrightDemo/Source/HelloBlazor.ServerApp/Properties/ServiceDependencies/app-helloblazorserverapp-web - Web Deploy/profile.arm.json
