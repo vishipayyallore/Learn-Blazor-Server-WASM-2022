@@ -1,8 +1,14 @@
+using CoffeeShop.Persistence;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+
+builder.Services.AddDbContext<EmployeeManagerDbContext>(
+    opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("EmployeeManagerDb")));
 
 var app = builder.Build();
 
