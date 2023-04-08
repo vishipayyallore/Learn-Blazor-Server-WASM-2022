@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CoffeeShop.Persistence.Migrations
 {
     [DbContext(typeof(EmployeeManagerDbContext))]
-    [Migration("20230408165239_InitialVersion")]
+    [Migration("20230408165442_InitialVersion")]
     partial class InitialVersion
     {
         /// <inheritdoc />
