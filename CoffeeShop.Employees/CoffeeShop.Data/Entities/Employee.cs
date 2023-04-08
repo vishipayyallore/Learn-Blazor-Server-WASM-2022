@@ -18,7 +18,7 @@ public class Employee
     public bool IsDeveloper { get; set; }
 
     [Required]
-    public int? DepartmentId { get; set; }
+    public Guid? DepartmentId { get; set; }
 
     public Department? Department { get; set; }
 }
