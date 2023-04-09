@@ -1,7 +1,50 @@
 ﻿@page "/employees/list"
+@using CoffeeShop.Data.Entities;
+@using CoffeeShop.Persistence;
+@using Microsoft.EntityFrameworkCore;
+
+@inject IDbContextFactory<EmployeeManagerDbContext> ContextFactory;
 
 <PageTitle>Employees</PageTitle>
 
 <h1>Employees</h1>
 
-TODO: List the employees here.
+@if (Employees is null)
+{
+    <div>Loading...</div>
+}
+else
+{
+    <table class="table table-primary table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Is Developer</th>
+                <th>Department</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Employees)
+            {
+                <tr>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.LastName</td>
+                    <td>@employee.IsDeveloper</td>
+                    <td>@employee.Department?.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Employee[]? Employees { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = await ContextFactory.CreateDbContextAsync();
+
+        Employees = await context.Employees.Include(emp => emp.Department).ToArrayAsync();
+    }
+}
