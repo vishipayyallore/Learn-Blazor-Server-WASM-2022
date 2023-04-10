@@ -29,16 +29,26 @@ public static class EmployeeManagerDataHelper
 
     public static Employee[] GetEmployees() => new Employee[]
     {
-        new Employee { Id = GetGuid(), FirstName = "Anna", LastName = "Rockstar", DepartmentId = GetGuid(_departmentIds[1]) },
-        new Employee { Id = GetGuid(), FirstName = "Julia", LastName = "Developer", DepartmentId = GetGuid(_departmentIds[4]), IsDeveloper = true },
-        new Employee { Id = GetGuid(), FirstName = "Thomas", LastName = "Huber", DepartmentId = GetGuid(_departmentIds[4]), IsDeveloper = true },
         new Employee { Id = GetGuid(), FirstName = "Sara", LastName = "Metroid", DepartmentId = GetGuid(_departmentIds[0]) },
-        new Employee { Id = GetGuid(), FirstName = "Ben", LastName = "Rockstar", DepartmentId = GetGuid(_departmentIds[3]) },
+        new Employee { Id = GetGuid(), FirstName = "Jasmin", LastName = "Curtis", DepartmentId = GetGuid(_departmentIds[0]), IsDeveloper = true },
+        new Employee { Id = GetGuid(), FirstName = "Aaa", LastName = "Metroid", DepartmentId = GetGuid(_departmentIds[0]) },
+        new Employee { Id = GetGuid(), FirstName = "Bbb", LastName = "Curtis", DepartmentId = GetGuid(_departmentIds[0]), IsDeveloper = true },
+        new Employee { Id = GetGuid(), FirstName = "Anna", LastName = "Rockstar", DepartmentId = GetGuid(_departmentIds[1]) },
+        new Employee { Id = GetGuid(), FirstName = "Julien", LastName = "Russell", DepartmentId = GetGuid(_departmentIds[1]), IsDeveloper = true },
+        new Employee { Id = GetGuid(), FirstName = "Ccc", LastName = "Rockstar", DepartmentId = GetGuid(_departmentIds[1]) },
+        new Employee { Id = GetGuid(), FirstName = "Ddd", LastName = "Russell", DepartmentId = GetGuid(_departmentIds[1]), IsDeveloper = true },
+        new Employee { Id = GetGuid(), FirstName = "Ben", LastName = "Rockstar", DepartmentId = GetGuid(_departmentIds[2]) },
         new Employee { Id = GetGuid(), FirstName = "Alex", LastName = "Rider", DepartmentId = GetGuid(_departmentIds[2]), IsDeveloper = true },
-        new Employee { Id = GetGuid(), FirstName = "Sophie", LastName = "Ramos", DepartmentId = GetGuid(_departmentIds[4]) },
-        new Employee { Id = GetGuid(), FirstName = "Julien", LastName = "Russell", DepartmentId = GetGuid(_departmentIds[1]) },
-        new Employee { Id = GetGuid(), FirstName = "Yvonne", LastName = "Snider", DepartmentId = GetGuid(_departmentIds[3]) },
-        new Employee { Id = GetGuid(), FirstName = "Jasmin", LastName = "Curtis", DepartmentId = GetGuid(_departmentIds[0]), IsDeveloper = true });
+        new Employee { Id = GetGuid(), FirstName = "Eee", LastName = "Rockstar", DepartmentId = GetGuid(_departmentIds[2]) },
+        new Employee { Id = GetGuid(), FirstName = "Fff", LastName = "Rider", DepartmentId = GetGuid(_departmentIds[2]), IsDeveloper = true },
+        new Employee { Id = GetGuid(), FirstName = "Sophie", LastName = "Ramos", DepartmentId = GetGuid(_departmentIds[3]) },
+        new Employee { Id = GetGuid(), FirstName = "Yvonne", LastName = "Snider", DepartmentId = GetGuid(_departmentIds[3]), IsDeveloper = true },
+        new Employee { Id = GetGuid(), FirstName = "Ggg", LastName = "Ramos", DepartmentId = GetGuid(_departmentIds[3]) },
+        new Employee { Id = GetGuid(), FirstName = "Hhh", LastName = "Snider", DepartmentId = GetGuid(_departmentIds[3]), IsDeveloper = true },
+        new Employee { Id = GetGuid(), FirstName = "Julia", LastName = "Developer", DepartmentId = GetGuid(_departmentIds[4]) },
+        new Employee { Id = GetGuid(), FirstName = "Thomas", LastName = "Huber", DepartmentId = GetGuid(_departmentIds[4]), IsDeveloper = true },
+        new Employee { Id = GetGuid(), FirstName = "Iii", LastName = "Developer", DepartmentId = GetGuid(_departmentIds[4]) },
+        new Employee { Id = GetGuid(), FirstName = "Jjj", LastName = "Huber", DepartmentId = GetGuid(_departmentIds[4]), IsDeveloper = true },
     };
 
 }
