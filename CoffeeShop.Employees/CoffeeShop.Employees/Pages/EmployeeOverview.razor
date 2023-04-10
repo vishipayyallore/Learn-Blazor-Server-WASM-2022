@@ -38,10 +38,16 @@ else
 @code {
     private Employee[]? Employees { get; set; }
 
+    private const int ItemsPerPage = 5;
+
     protected override async Task OnInitializedAsync()
     {
         using var context = await ContextFactory.CreateDbContextAsync();
 
-        Employees = await context.Employees.Include(emp => emp.Department).ToArrayAsync();
+        Employees = await context.Employees
+                                        .Include(emp => emp.Department)
+                                        .OrderBy(emp => emp.FirstName)
+                                        .Take(ItemsPerPage)
+                                        .ToArrayAsync();
     }
 }
