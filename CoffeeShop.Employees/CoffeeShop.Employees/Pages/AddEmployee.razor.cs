@@ -14,11 +14,11 @@ public partial class AddEmployee
 
     private Department[]? Departments { get; set; }
 
+    private bool IsBusy { get; set; }
+
     private string? SuccessMessage { get; set; }
 
     private string? ErrorMessage { get; set; }
-
-    private bool IsBusy { get; set; }
 
     protected override async Task OnInitializedAsync()
     {
