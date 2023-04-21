@@ -14,8 +14,8 @@ public partial class EditEmployee
     [Inject]
     public NavigationManager? NavigationManager { get; set; }
 
-    [Inject]
-    public StateContainer StateContainer { get; set; }
+    //[Inject]
+    //public StateContainer StateContainer { get; set; }
 
     [Parameter]
     public Guid EmployeeId { get; set; }
@@ -79,7 +79,7 @@ public partial class EditEmployee
 
     private void NavigateToOverviewPage()
     {
-        NavigationManager?.NavigateTo($"/employees/list/{StateContainer.EmployeeOverviewPage}");
+        // NavigationManager?.NavigateTo($"/employees/list/{StateContainer.EmployeeOverviewPage}");
     }
 
 }

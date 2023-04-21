@@ -1,4 +1,5 @@
 ﻿using CoffeeShop.Data.Entities;
+using CoffeeShop.Employees.Shared;
 using CoffeeShop.Persistence;
 using Microsoft.AspNetCore.Components;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,9 @@ public partial class ListEmployees
 
     [Inject]
     public NavigationManager? NavigationManager { get; set; }
+
+    [Inject]
+    public StateContainer? StateContainer { get; set; }
 
     private Employee[]? Employees { get; set; }
 
@@ -44,6 +48,8 @@ public partial class ListEmployees
 
             return;
         }
+
+        StateContainer!.ListEmployees = CurrentPage.Value;
 
         var itemsToSkip = (CurrentPage.Value - 1) * ItemsPerPage;
 
