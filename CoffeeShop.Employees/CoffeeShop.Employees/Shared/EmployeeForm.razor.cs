@@ -16,6 +16,12 @@ public partial class EmployeeForm
     public bool IsBusy { get; set; }
 
     [Parameter]
+    public bool IsEdit { get; set; }
+
+    [Parameter]
+    public EventCallback OnCancel { get; set; }
+
+    [Parameter]
     public EventCallback<bool> OnSubmit { get; set; }
 
     private async Task HandleValidSubmit()
@@ -31,6 +37,14 @@ public partial class EmployeeForm
         if (OnSubmit.HasDelegate)
         {
             await OnSubmit.InvokeAsync(false);
+        }
+    }
+
+    private async Task HandleCancel()
+    {
+        if (OnCancel.HasDelegate)
+        {
+            await OnCancel.InvokeAsync();
         }
     }
 
