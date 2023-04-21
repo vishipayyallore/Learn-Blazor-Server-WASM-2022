@@ -1,8 +1,8 @@
 ﻿using CoffeeShop.Data.Entities;
+using CoffeeShop.Employees.Shared;
 using CoffeeShop.Persistence;
 using Microsoft.AspNetCore.Components;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Internal;
 
 namespace CoffeeShop.Employees.Pages;
 
@@ -14,8 +14,8 @@ public partial class EditEmployee
     [Inject]
     public NavigationManager? NavigationManager { get; set; }
 
-    //[Inject]
-    //public StateContainer StateContainer { get; set; }
+    [Inject]
+    public StateContainer? StateContainer { get; set; }
 
     [Parameter]
     public Guid EmployeeId { get; set; }
@@ -65,7 +65,7 @@ public partial class EditEmployee
             context.Update(Employee);
             await context.SaveChangesAsync();
 
-            NavigateToOverviewPage();
+            NavigateToEmployeesListPage();
         }
         catch (Exception ex)
         {
@@ -77,9 +77,9 @@ public partial class EditEmployee
         }
     }
 
-    private void NavigateToOverviewPage()
+    private void NavigateToEmployeesListPage()
     {
-        // NavigationManager?.NavigateTo($"/employees/list/{StateContainer.EmployeeOverviewPage}");
+        NavigationManager?.NavigateTo($"/employees/list/{StateContainer!.ListEmployees}");
     }
 
 }
