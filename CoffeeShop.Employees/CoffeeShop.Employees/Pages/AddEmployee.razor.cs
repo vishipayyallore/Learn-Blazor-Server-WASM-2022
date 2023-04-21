@@ -32,6 +32,18 @@ public partial class AddEmployee
         };
     }
 
+    private async Task HandleSubmit(bool isValid)
+    {
+        if (isValid)
+        {
+            await HandleValidSubmit();
+        }
+        else
+        {
+            HandleInvalidSubmit();
+        }
+    }
+
     private async Task HandleValidSubmit()
     {
         if (IsBusy)
@@ -74,6 +86,7 @@ public partial class AddEmployee
     private void HandleInvalidSubmit()
     {
         SuccessMessage = null;
+
         ErrorMessage = null;
     }
 

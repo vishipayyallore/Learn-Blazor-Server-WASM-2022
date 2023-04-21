@@ -5,8 +5,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CoffeeShop.Employees.Pages;
 
-public partial class EmployeeOverview
+public partial class ListEmployees
 {
+
     [Parameter]
     public int? CurrentPage { get; set; }
 
