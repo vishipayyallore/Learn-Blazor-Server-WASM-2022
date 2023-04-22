@@ -1,3 +1,4 @@
+using CoffeeShop.Employees.Shared;
 using CoffeeShop.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,6 +10,8 @@ builder.Services.AddServerSideBlazor();
 
 builder.Services.AddDbContextFactory<EmployeeManagerDbContext>(opt =>
     opt.UseSqlServer(builder.Configuration.GetConnectionString("EmployeeManagerDb")));
+
+builder.Services.AddScoped<StateContainer>();
 
 var app = builder.Build();
 

@@ -1,0 +1,21 @@
+﻿@page "/employees/edit/{employeeId:guid}"
+
+<PageTitle>Edit Employee</PageTitle>
+
+<h1>Edit Employee</h1>
+
+@if (Employee is null && !IsBusy)
+{
+    <div class="alert alert-danger">Employee with Id @EmployeeId was not found.</div>
+}
+else
+{
+    <EmployeeForm Employee="@Employee" Departments="@Departments" IsEdit="true" IsBusy="@IsBusy"
+              OnSubmit="@HandleSubmit" OnCancel="NavigateToEmployeesListPage" />
+}
+
+@if (ErrorMessage is not null)
+{
+    <br />
+    <div class="alert alert-danger">@ErrorMessage</div>
+}

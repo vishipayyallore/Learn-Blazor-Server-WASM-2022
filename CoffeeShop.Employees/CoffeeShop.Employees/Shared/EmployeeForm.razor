@@ -34,6 +34,14 @@
             <InputCheckbox id="isDeveloper" class="form-check-input" @bind-Value="Employee.IsDeveloper" />
         </div>
 
-        <button type="submit" class="btn btn-primary" disabled="@IsBusy">Add</button>
+        @if (IsEdit)
+        {
+            <button type="submit" class="btn btn-primary" disabled="@IsBusy">Update</button>
+            <button type="button" class="btn btn-secondary" @onclick="HandleCancel" disabled="@IsBusy">Cancel</button>
+        }
+        else
+        {
+            <button type="submit" class="btn btn-primary" disabled="@IsBusy">Add</button>
+        }
     </EditForm>
 }
