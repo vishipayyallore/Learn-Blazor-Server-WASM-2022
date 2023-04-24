@@ -67,6 +67,10 @@ public partial class EditEmployee
 
             NavigateToEmployeesListPage();
         }
+        catch (DbUpdateConcurrencyException)
+        {
+            ErrorMessage = "The employee was modified by another user. Please reload this page.";
+        }
         catch (Exception ex)
         {
             ErrorMessage = $"Error while saving employee: {ex.Message}";

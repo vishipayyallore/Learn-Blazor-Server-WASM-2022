@@ -21,4 +21,7 @@ public class Employee
     public Guid? DepartmentId { get; set; }
 
     public Department? Department { get; set; }
+
+    [Timestamp]
+    public byte[]? Timestamp { get; set; }
 }
