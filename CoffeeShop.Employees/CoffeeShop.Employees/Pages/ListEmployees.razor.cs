@@ -48,9 +48,7 @@ public partial class ListEmployees
         using var context = ContextFactory!.CreateDbContext();
 
         var employeeCount = await context.Employees.CountAsync();
-        TotalPages = employeeCount == 0
-          ? 1
-          : (int)Math.Ceiling((double)employeeCount / ItemsPerPage);
+        TotalPages = employeeCount == 0 ? 1 : (int)Math.Ceiling((double)employeeCount / ItemsPerPage);
 
         if (CurrentPage > TotalPages)
         {
@@ -77,9 +75,17 @@ public partial class ListEmployees
 
         if (isOk)
         {
-            using var context = ContextFactory!.CreateDbContext();
-            context.Employees.Remove(employee);
-            await context.SaveChangesAsync();
+            try
+            {
+                using var context = ContextFactory!.CreateDbContext();
+                context.Employees.Remove(employee);
+                await context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                // If we get this exception, the employee was deleted or modified.
+                // As we reload the data below, let's ignore this exception.
+            }
 
             await LoadData();
         }
