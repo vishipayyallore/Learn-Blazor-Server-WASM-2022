@@ -1,7 +1,6 @@
-﻿using HR.LeaveManagement.Application.Contracts.Persistence;
-using HR.LeaveManagement.Domain;
+﻿using HR.LeaveManagement.Domain;
 
-namespace HR.LeaveManagement.Application.Contracts;
+namespace HR.LeaveManagement.Application.Contracts.Persistence;
 
 public interface ILeaveAllocationRepository : IGenericRepository<LeaveAllocation>
 {
