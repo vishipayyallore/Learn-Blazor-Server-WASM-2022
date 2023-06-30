@@ -1,4 +1,5 @@
 ﻿using HR.LeaveManagement.Domain.Common;
+using System.ComponentModel.DataAnnotations;
 
 namespace HR.LeaveManagement.Domain;
 
@@ -12,5 +13,6 @@ public class LeaveAllocation : BaseEntity
 
     public int Period { get; set; }
 
-    public string EmployeeId { get; set; } = string.Empty;
+    [Required]
+    public string? EmployeeId { get; set; }
 }
