@@ -1,4 +1,5 @@
 ﻿using HR.LeaveManagement.Domain.Common;
+using System.ComponentModel.DataAnnotations;
 
 namespace HR.LeaveManagement.Domain;
 
@@ -20,5 +21,6 @@ public class LeaveRequest : BaseEntity
 
     public bool Cancelled { get; set; }
 
-    public string RequestingEmployeeId { get; set; } = string.Empty;
+    [Required]
+    public string? RequestingEmployeeId { get; set; }
 }
