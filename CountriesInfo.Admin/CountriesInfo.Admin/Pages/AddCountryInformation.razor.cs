@@ -16,15 +16,10 @@ public partial class AddCountryInformation
     public bool IsBusy { get; set; }
 
     [Inject]
-    public IHttpClientFactory _httpClientFactory { get; set; }
+    public IHttpClientFactory? _httpClientFactory { get; set; }
 
     public AddCountryInformation()
     {
-    }
-
-    public AddCountryInformation(IHttpClientFactory httpClientFactory)
-    {
-        _httpClientFactory = httpClientFactory;
     }
 
     private async Task HandleFormSubmit()
@@ -38,7 +33,7 @@ public partial class AddCountryInformation
 
         try
         {
-            var client = _httpClientFactory.CreateClient("FlaskCountriesAPI");
+            var client = _httpClientFactory!.CreateClient("FlaskCountriesAPI");
 
             var json = JsonSerializer.Serialize(new { country_name = addCountryInformationDto.CountryName });
             var content = new StringContent(json, Encoding.UTF8, "application/json");
