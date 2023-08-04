@@ -3,3 +3,20 @@
 <PageTitle>Add Country Information</PageTitle>
 
 <h1>Add Country Information</h1>
+
+@if (isFormSubmitted)
+{
+    <p>Form submitted successfully!</p>
+}
+else
+{
+    <EditForm Model="@addCountryInformationDto" OnValidSubmit="HandleFormSubmit">
+        <DataAnnotationsValidator />
+        <div class="form-group">
+            <label for="countryName">Country Name:</label>
+            <InputText id="countryName" class="form-control" @bind-Value="@addCountryInformationDto.CountryName" />
+            <ValidationMessage For="@(() => addCountryInformationDto.CountryName)" />
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </EditForm>
+}
