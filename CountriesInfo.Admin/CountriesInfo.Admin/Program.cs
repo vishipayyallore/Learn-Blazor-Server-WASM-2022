@@ -3,6 +3,14 @@ using CountriesInfo.Admin.Data;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+// Configure the Python Flask HttpClient for the Countries API
+builder.Services.AddHttpClient("FlaskCountriesAPI", client =>
+{
+    client.BaseAddress = new Uri(" http://127.0.0.1:5000/");
+    // Add any additional configurations for the first API
+});
+
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<WeatherForecastService>();
