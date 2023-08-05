@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddHttpClient("FlaskCountriesAPI", client =>
 {
     client.BaseAddress = new Uri(" http://127.0.0.1:5000/");
-    // Add any additional configurations for the first API
+    // Add any additional configurations for the API
 });
 
 builder.Services.AddRazorPages();
