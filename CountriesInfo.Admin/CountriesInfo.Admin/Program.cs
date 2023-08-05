@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Configure the Python Flask HttpClient for the Countries API
 builder.Services.AddHttpClient("FlaskCountriesAPI", client =>
 {
-    client.BaseAddress = new Uri(" http://127.0.0.1:5000/");
+    client.BaseAddress = new Uri("http://127.0.0.1:5000/");
     // Add any additional configurations for the API
 });
 
