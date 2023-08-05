@@ -1,0 +1,41 @@
+﻿@page "/countries/add"
+
+<PageTitle>Add Country Information</PageTitle>
+
+<h1>Add Country Information</h1>
+
+@if (isFormSubmitted)
+{
+    <p>@addCountryInformationDto.CountryName Information added successfully!</p>
+
+    @if (SuccessMessage is not null)
+    {
+        <br />
+        <div class="alert alert-success">@SuccessMessage</div>
+    }
+
+    @if (ErrorMessage is not null)
+    {
+        <br />
+        <div class="alert alert-danger">@ErrorMessage</div>
+    }
+}
+else
+{
+    <EditForm Model="@addCountryInformationDto" OnValidSubmit="HandleFormSubmit">
+        <DataAnnotationsValidator />
+        <div class="form-group">
+            <div class="mb-3">
+                <label for="countryName">Country Name:</label>
+                <InputText id="countryName" class="form-control" @bind-Value="@addCountryInformationDto.CountryName" />
+                <ValidationMessage For="@(() => addCountryInformationDto.CountryName)" />
+            </div>
+        </div>
+
+        @if (IsBusy)
+        {
+            <p>Please wait while we fetch data from Azure Open AI.</p>
+        }
+        <button type="submit" class="btn btn-primary" disabled="@IsBusy">Add</button>
+    </EditForm>
+}
