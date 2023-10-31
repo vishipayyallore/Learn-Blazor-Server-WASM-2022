@@ -38,7 +38,7 @@ public partial class AddCountryInformation
             var json = JsonSerializer.Serialize(new { country_name = addCountryInformationDto.CountryName });
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await client.PostAsync("api/countryinfo", content);
+            var response = await client.PostAsync("api/getcountryinfo", content);
 
             if (response.IsSuccessStatusCode)
             {
