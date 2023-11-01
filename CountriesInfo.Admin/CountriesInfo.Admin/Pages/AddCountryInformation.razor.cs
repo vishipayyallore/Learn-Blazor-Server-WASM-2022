@@ -1,6 +1,5 @@
 ﻿using CountriesInfo.Admin.Data;
 using Microsoft.AspNetCore.Components;
-using System.Text;
 using System.Text.Json;
 
 namespace CountriesInfo.Admin.Pages;
@@ -12,6 +11,7 @@ public partial class AddCountryInformation
     private bool isFormSubmitted = false;
     private string? SuccessMessage { get; set; }
     private string? ErrorMessage { get; set; }
+    private CountryInfoDto countryInfo = new();
 
     public bool IsBusy { get; set; }
 
@@ -35,14 +35,15 @@ public partial class AddCountryInformation
         {
             var client = _httpClientFactory!.CreateClient("FlaskCountriesAPI");
 
-            var json = JsonSerializer.Serialize(new { country_name = addCountryInformationDto.CountryName });
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-            var response = await client.PostAsync("api/countryinfo", content);
+            var response = await client.GetAsync($"api/getcountryinfo?country_name={addCountryInformationDto.CountryName}");
 
             if (response.IsSuccessStatusCode)
             {
-                isFormSubmitted = true;
+
+                var content = await response.Content.ReadAsStringAsync();
+                countryInfo = JsonSerializer.Deserialize<CountryInfoDto>(content);
+
+                //isFormSubmitted = true;
                 ErrorMessage = null;
                 StateHasChanged();
             }
@@ -62,3 +63,9 @@ public partial class AddCountryInformation
         }
     }
 }
+
+
+
+//var json = JsonSerializer.Serialize(new { country_name = addCountryInformationDto.CountryName });
+//var content = new StringContent(json, Encoding.UTF8, "application/json");
+//var response = await client.PostAsync("api/getcountryinfo", content);
