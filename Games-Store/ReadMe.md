@@ -12,6 +12,9 @@ This is a simple Blazor WASM project that I am learning from a Video Course. I a
 
 ```powershell
 dotnet new blazorwasm -n GamesStore.Web
+
+dotnet build .\GamesStore.Web\GamesStore.Web.csproj
+dotnet run --project .\GamesStore.Web\GamesStore.Web.csproj
 ```
 
 ## Few Commands
@@ -20,4 +23,6 @@ dotnet new blazorwasm -n GamesStore.Web
 dotnet --info
 dotnet --list-sdks
 dotnet --version
+dotnet new --help
+dotnet build
 ```
