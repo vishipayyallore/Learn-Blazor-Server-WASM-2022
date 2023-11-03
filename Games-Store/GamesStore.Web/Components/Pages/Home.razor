@@ -1,7 +1,41 @@
 ﻿@page "/"
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Game Catalog</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>Game Catalog</h1>
 
-Welcome to your new app.
+<!-- Table with shadow border rounded corners -->
+<table class="table table-light table-striped table-hover">
+    <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Genre</th>
+    <th>Price</th>
+    <th>Release Date</th>
+    <th>Actions</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Super Mario Bros</td>
+            <td>Platformer</td>
+            <td>$59.99</td>
+            <td>1985-09-13</td>
+            <td>
+                <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Super Mario Bros 2</td>
+            <td>Platformer</td>
+            <td>$59.99</td>
+            <td>1988-10-09</td>
+            <td>
+                <button class="btn btn-primary">Edit</button>
+                <button class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
