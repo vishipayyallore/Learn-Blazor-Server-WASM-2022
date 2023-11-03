@@ -5,7 +5,9 @@
             "name": "Launch and Debug Standalone Blazor WebAssembly App",
             "type": "blazorwasm",
             "request": "launch",
-            "cwd": "${workspaceFolder}/GamesStore.Web"
+            "cwd": "${workspaceFolder}/GamesStore.Web",
+            "url": "https://localhost:7290",
+            "browser": "chrome",
         }
     ]
 }
