@@ -1,0 +1,33 @@
+﻿@page "/"
+
+<PageTitle>Games Catalog</PageTitle>
+
+<h1>Games Catalog</h1>
+
+<!-- Table with shadow border rounded corners "table-striped" -->
+<table class="table table-bordered shadow-sm table-light table-hover">
+    <thead class="table-dark">
+    <th>Id</th>
+    <th>Name</th>
+    <th>Genre</th>
+    <th>Price</th>
+    <th>Release Date</th>
+    <th>Actions</th>
+    </thead>
+    <tbody>
+        @foreach (var game in games)
+        {
+            <tr>
+                <td>@game.Id</td>
+                <td>@game.Name</td>
+                <td>@game.Genre</td>
+                <td>@game.Price</td>
+                <td>@game.ReleaseDate.ToString("MM/dd/yyyy")</td>
+                <td>
+                    <button class="btn btn-primary">Edit</button>
+                    <button class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
