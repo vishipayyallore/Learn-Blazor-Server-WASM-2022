@@ -13,5 +13,5 @@ public static class GameClient
         new Game { Id = 5, Name = "Super Mario Bros 2", Genre = "Platformer", Price = 59.99M, ReleaseDate = new DateTime(1988, 10, 09) },
     ];
 
-    public static Game[] GetGames() => games.ToArray();
+    public static Game[] GetGames() => [.. games];
 }
