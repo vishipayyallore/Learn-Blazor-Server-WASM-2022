@@ -9,7 +9,7 @@
 
 <div class="row">
     <div class="col-sm-4">
-        <EditForm Model="@game">
+        <EditForm Model="@game" OnSubmit="HandleSubmit">
             <div class="mb-3">
                 <label for="name" class="form-label">Name:</label>
                 <InputText id="name" @bind-Value="game.Name" class="form-control"></InputText>
@@ -25,6 +25,9 @@
             <div class="mb-3">
                 <label for="releaseDate" class="form-label">Release Date:</label>
                 <InputDate id="releaseDate" @bind-Value="game.ReleaseDate" class="form-control"></InputDate>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary align-content-center align-items-center"><span class="bi bi-save2-fill" aria-hidden="true"></span> Save</button>
             </div>
         </EditForm>
     </div>
