@@ -4,6 +4,12 @@
 
 <h1>Games Catalog</h1>
 
+<div class="row mb-4">
+    <div class="col-sm-6">
+        <button type="button" class="btn btn-primary" @onclick="CreateGame">New Game</button>
+    </div>
+</div>
+
 @if (games is null)
 {
     <p><em>Loading ...</em></p>
@@ -13,12 +19,12 @@ else
     <!-- Table with shadow border rounded corners "table-striped" -->
     <table class="table table-bordered table-striped shadow-sm table-light table-hover">
         <thead class="table-primary">
-            <th>Id</th>
-            <th>Name</th>
-            <th>Genre</th>
-            <th>Price</th>
-            <th>Release Date</th>
-            <th>Actions</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Genre</th>
+        <th>Price</th>
+        <th>Release Date</th>
+        <th>Actions</th>
         </thead>
         <tbody>
             @foreach (var game in games)
