@@ -18,4 +18,9 @@ public partial class EditGame
         NavigationManager.NavigateTo("/");
     }
 
+    private void Cancel()
+    {
+        NavigationManager.NavigateTo("/");
+    }
+
 }
