@@ -15,5 +15,10 @@ public static class GameClient
 
     public static Game[] GetGames() => [.. games];
 
-    public static void AddGame(Game game) => games.Add(game);
+    public static void AddGame(Game game)
+    {
+        game.Id = games.Max(x => x.Id) + 1;
+
+        games.Add(game);
+    }
 }
