@@ -12,7 +12,7 @@ public partial class EditGame
     [Parameter]
     public int? Id { get; set; }
 
-    private Game game = new() { Name = string.Empty, Genre = string.Empty, ReleaseDate = DateTime.UtcNow };
+    private Game? game;
 
     protected override void OnParametersSet()
     {
@@ -28,6 +28,10 @@ public partial class EditGame
                 Price = gameFound.Price,
                 ReleaseDate = gameFound.ReleaseDate
             };
+        }
+        else
+        {
+            game = new() { Name = string.Empty, Genre = string.Empty, ReleaseDate = DateTime.UtcNow };
         }
     }
 
