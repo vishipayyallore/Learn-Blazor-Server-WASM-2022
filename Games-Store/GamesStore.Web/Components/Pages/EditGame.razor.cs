@@ -9,7 +9,27 @@ public partial class EditGame
     [Inject]
     public NavigationManager NavigationManager { get; set; } = default!;
 
+    [Parameter]
+    public int? Id { get; set; }
+
     private Game game = new() { Name = string.Empty, Genre = string.Empty, ReleaseDate = DateTime.UtcNow };
+
+    protected override void OnParametersSet()
+    {
+        if (Id is not null)
+        {
+            Game gameFound = GameClient.GetGame(Id.Value);
+
+            game = new()
+            {
+                Id = gameFound.Id,
+                Name = gameFound.Name,
+                Genre = gameFound.Genre,
+                Price = gameFound.Price,
+                ReleaseDate = gameFound.ReleaseDate
+            };
+        }
+    }
 
     private void HandleSubmit()
     {
