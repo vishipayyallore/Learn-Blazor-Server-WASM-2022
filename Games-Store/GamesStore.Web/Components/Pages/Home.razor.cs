@@ -20,7 +20,7 @@ public partial class Home
     {
         NavigationManager.NavigateTo("/game");
     }
-    
+
     private void EditGame(int id)
     {
         NavigationManager.NavigateTo($"/game/{id}");
