@@ -16,6 +16,9 @@
 }
 else
 {
+    <DeleteGame Game="@currentGame" OnClose="@OnDeleteModalClose">
+    </DeleteGame>
+
     <!-- Table with shadow border rounded corners "table-striped" -->
     <table class="table table-bordered table-striped shadow-sm table-light table-hover">
         <thead class="table-primary">
@@ -37,7 +40,10 @@ else
                     <td>@game.ReleaseDate.ToString("MM/dd/yyyy")</td>
                     <td>
                         <button class="btn btn-primary" @onclick="() => EditGame(game.Id)"><span class="bi bi-pencil-square" aria-hidden="true"></span></button>
-                        <button class="btn btn-danger">Delete</button>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
+                                @onclick="(() => currentGame = game)">
+                            <span class="bi bi-trash" aria-hidden="true"></span>
+                        </button>
                     </td>
                 </tr>
             }
