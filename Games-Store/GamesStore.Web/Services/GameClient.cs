@@ -24,7 +24,7 @@ public static class GameClient
 
     public static Game GetGame(int id)
     {
-        return games[id] ?? throw new Exception("Game not found");
+        return games.Find(game => game.Id == id) ?? throw new Exception("Could not find game!");
     }
 
     public static void UpdateGame(Game updatedGame)
