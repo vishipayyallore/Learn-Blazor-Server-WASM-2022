@@ -6,6 +6,11 @@ This is a simple Blazor WASM project that I am learning from a Video Course. I a
 
 > 1. To be Decided
 
+```bash
+dotnet build .\build.proj
+dotnet build .\Games-Store.sln
+```
+
 ## GamesStore.Web
 
 > 1. Blazor WASM Front End Project
