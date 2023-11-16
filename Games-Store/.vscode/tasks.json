@@ -2,7 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build-sln",
+            "label": "build",
             "command": "dotnet",
             "type": "process",
             "args": [
@@ -14,7 +14,7 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "label": "build",
+            "label": "build-all",
             "command": "dotnet",
             "type": "process",
             "args": [
