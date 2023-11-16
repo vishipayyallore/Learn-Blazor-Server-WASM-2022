@@ -1,3 +1,6 @@
+// Use IntelliSense to find out which attributes exist for C# debugging
+// Use hover for the description of the existing attributes
+// For further information visit https://github.com/dotnet/vscode-csharp/blob/main/debugger-launchjson.md.
 {
     "version": "0.2.0",
     "configurations": [
@@ -5,15 +8,13 @@
             "name": "Blazor WASM - Launch and Debug",
             "type": "blazorwasm",
             "request": "launch",
+            "preLaunchTask": "build",
             "cwd": "${workspaceFolder}/GamesStore.Web",
             "url": "https://localhost:7290",
             "browser": "chrome",
         },
         {
-            // Use IntelliSense to find out which attributes exist for C# debugging
-            // Use hover for the description of the existing attributes
-            // For further information visit https://github.com/dotnet/vscode-csharp/blob/main/debugger-launchjson.md.
-            "name": ".NET Core Launch (web)",
+            "name": "Web API - Launch and Debug",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
