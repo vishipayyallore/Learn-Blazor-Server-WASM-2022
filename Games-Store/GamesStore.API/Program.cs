@@ -28,6 +28,52 @@ group.MapGet("/{id}", (int id) =>
     }
 
     return Results.Ok(game);
+})
+.WithName("GetGame");
+
+// POST /games
+group.MapPost("/", (Game game) =>
+{
+    game.Id = games.Max(game => game.Id) + 1;
+    games.Add(game);
+
+    return Results.CreatedAtRoute("GetGame", new { id = game.Id }, game);
+});
+
+// PUT /games/{id}
+group.MapPut("/{id}", (int id, Game updatedGame) =>
+{
+    Game? existingGame = games.Find(game => game.Id == id);
+
+    if (existingGame is null)
+    {
+        updatedGame.Id = id;
+        games.Add(updatedGame);
+        return Results.CreatedAtRoute("GetGame", new { id = updatedGame.Id }, updatedGame);
+    }
+
+    existingGame.Name = updatedGame.Name;
+    existingGame.Genre = updatedGame.Genre;
+    existingGame.Price = updatedGame.Price;
+    existingGame.ReleaseDate = updatedGame.ReleaseDate;
+
+    return Results.NoContent();
+});
+
+// DELETE /games/{id}
+group.MapDelete("/{id}", (int id) =>
+{
+    Game? game = games.Find(game => game.Id == id);
+
+    if (game is null)
+    {
+        return Results.NotFound();
+        //return Results.NoContent();
+    }
+
+    games.Remove(game);
+
+    return Results.NoContent();
 });
 
 app.Run();
