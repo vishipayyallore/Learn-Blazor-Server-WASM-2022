@@ -12,7 +12,22 @@ List<Game> games =
         new Game { Id = 5, Name = "Super Mario Bros 2", Genre = "Platformer", Price = 59.99M, ReleaseDate = new DateTime(1988, 10, 09) },
     ];
 
+var group = app.MapGroup("/ep/games");
+
 // GET /ep/games
-app.MapGet("/ep/games", () => games);
+group.MapGet("/", () => games);
+
+// GET /games/{id}
+group.MapGet("/{id}", (int id) =>
+{
+    Game? game = games.Find(game => game.Id == id);
+
+    if (game is null)
+    {
+        return Results.NotFound();
+    }
+
+    return Results.Ok(game);
+});
 
 app.Run();
