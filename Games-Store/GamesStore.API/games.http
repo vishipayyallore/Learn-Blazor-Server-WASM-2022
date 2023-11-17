@@ -1,15 +1,38 @@
 # For more info on HTTP files go to https://aka.ms/vs/httpfile
 
-@ServiceUrl = http://localhost:5052
+@ServiceUrl = http://localhost:7035
 @EndPoint = /ep/games
+@baseUrl = {{ServiceUrl}}{{EndPoint}}
 
 ### GET /ep/games
-GET https://localhost:7035/ep/games
-
-###
-GET {{ServiceUrl}}{{EndPoint}}
+GET {{baseUrl}}
 
 ### GET /ep/games/1
-GET {{ServiceUrl}}{{EndPoint}}/1
+GET {{baseUrl}}/1
 
-###
+### POST /ep/games
+POST {{baseUrl}}
+content-type: application/json
+
+{
+    "Name": "",
+    "Genre": "Kids and Family",
+    "Price": 300.99,
+    "ReleaseDate": "2011-11-18"
+}
+
+### PUT /ep/games/1
+PUT {{baseUrl}}/1
+content-type: application/json
+
+{
+    "name": "Street Fighter II Turbo",
+    "genre": "Fighting",
+    "price": 9.99,
+    "releaseDate": "1991-02-01"    
+}
+
+### DELETE /ep/games/2
+DELETE {{baseUrl}}/2
+
+# GET https://localhost:7035/ep/games
