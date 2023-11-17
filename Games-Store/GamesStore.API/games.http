@@ -1,3 +1,15 @@
 # For more info on HTTP files go to https://aka.ms/vs/httpfile
 
+@ServiceUrl = http://localhost:5052
+@EndPoint = /ep/games
+
+### GET /ep/games
 GET https://localhost:7035/ep/games
+
+###
+GET {{ServiceUrl}}{{EndPoint}}
+
+### GET /ep/games/1
+GET {{ServiceUrl}}{{EndPoint}}/1
+
+###

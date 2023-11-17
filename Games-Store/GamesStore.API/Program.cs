@@ -15,4 +15,17 @@ List<Game> games =
 // GET /ep/games
 app.MapGet("/ep/games", () => games);
 
+// GET /games/{id}
+app.MapGet("/ep/games/{id}", (int id) =>
+{
+    Game? game = games.Find(game => game.Id == id);
+
+    if (game is null)
+    {
+        return Results.NotFound();
+    }
+
+    return Results.Ok(game);
+});
+
 app.Run();
