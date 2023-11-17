@@ -15,10 +15,10 @@ List<Game> games =
 var group = app.MapGroup("/ep/games");
 
 // GET /ep/games
-app.MapGet("/", () => games);
+group.MapGet("/", () => games);
 
 // GET /games/{id}
-app.MapGet("/{id}", (int id) =>
+group.MapGet("/{id}", (int id) =>
 {
     Game? game = games.Find(game => game.Id == id);
 
