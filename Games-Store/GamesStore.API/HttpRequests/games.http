@@ -1,6 +1,6 @@
 # For more info on HTTP files go to https://aka.ms/vs/httpfile
 
-@ServiceUrl = http://localhost:7035
+@ServiceUrl = https://localhost:7035
 @EndPoint = /ep/games
 @baseUrl = {{ServiceUrl}}{{EndPoint}}
 
