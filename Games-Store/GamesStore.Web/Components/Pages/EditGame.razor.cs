@@ -19,7 +19,7 @@ public partial class EditGame
 
     private string title = string.Empty;
 
-    protected async override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
         if (Id is not null)
         {
@@ -44,7 +44,7 @@ public partial class EditGame
         }
     }
 
-    private async void HandleSubmit()
+    private async Task HandleSubmitAsync()
     {
         if (game?.Id == 0)
         {
