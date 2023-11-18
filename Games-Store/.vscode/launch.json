@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "compounds": [
         {
-            "name": "Launch and Debug Client and Server",
+            "name": "Solution - Launch and Debug",
             "configurations": [
                 "Web API - Launch and Debug",
                 "Blazor WASM - Launch and Debug"
