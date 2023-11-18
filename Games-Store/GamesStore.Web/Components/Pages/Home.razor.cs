@@ -31,7 +31,7 @@ public partial class Home
         NavigationManager.NavigateTo($"/game/{id}");
     }
 
-    private async void OnDeleteModalClose(bool accepted)
+    private async Task OnDeleteModalCloseAsync(bool accepted)
     {
         if (accepted)
         {
