@@ -16,7 +16,7 @@ public partial class Home
     [Inject]
     public GameClient Client { get; set; } = default!;
 
-    protected async override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
         games = await Client.GetGamesAsync();
     }
