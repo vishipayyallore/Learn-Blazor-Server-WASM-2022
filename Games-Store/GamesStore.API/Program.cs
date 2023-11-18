@@ -1,8 +1,5 @@
 using GamesStore.API.Models;
 
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
-
 List<Game> games =
     [
         new Game { Id = 1, Name = "Super Mario Bros", Genre = "Platformer", Price = 59.99M, ReleaseDate = new DateTime(1985, 09, 13) },
@@ -11,6 +8,19 @@ List<Game> games =
         new Game { Id = 4, Name = "FIFA 23", Genre = "Sports", Price = 69.99M, ReleaseDate = new DateTime(2022, 9, 27) },
         new Game { Id = 5, Name = "Super Mario Bros 2", Genre = "Platformer", Price = 59.99M, ReleaseDate = new DateTime(1988, 10, 09) },
     ];
+
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddCors(options => options.AddDefaultPolicy(builder =>
+{
+    builder.WithOrigins("https://localhost:7290")
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+}));
+
+var app = builder.Build();
+
+app.UseCors();
 
 var group = app.MapGroup("/ep/games")
                 .WithParameterValidation();
