@@ -12,7 +12,8 @@ List<Game> games =
         new Game { Id = 5, Name = "Super Mario Bros 2", Genre = "Platformer", Price = 59.99M, ReleaseDate = new DateTime(1988, 10, 09) },
     ];
 
-var group = app.MapGroup("/ep/games");
+var group = app.MapGroup("/ep/games")
+                .WithParameterValidation();
 
 // GET /ep/games
 group.MapGet("/", () => games);
