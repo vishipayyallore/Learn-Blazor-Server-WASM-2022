@@ -3,6 +3,16 @@
 // For further information visit https://github.com/dotnet/vscode-csharp/blob/main/debugger-launchjson.md.
 {
     "version": "0.2.0",
+    "compounds": [
+        {
+            "name": "Solution - Launch and Debug",
+            "configurations": [
+                "Web API - Launch and Debug",
+                "Blazor WASM - Launch and Debug"
+            ],
+            "preLaunchTask": "build"
+        }
+    ],
     "configurations": [
         {
             "name": "Blazor WASM - Launch and Debug",

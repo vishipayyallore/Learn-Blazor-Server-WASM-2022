@@ -9,6 +9,9 @@ public partial class EditGame
     [Inject]
     public NavigationManager NavigationManager { get; set; } = default!;
 
+    [Inject]
+    public GameClient Client { get; set; } = default!;
+
     [Parameter]
     public int? Id { get; set; }
 
@@ -16,11 +19,11 @@ public partial class EditGame
 
     private string title = string.Empty;
 
-    protected override void OnParametersSet()
+    protected override async Task OnParametersSetAsync()
     {
         if (Id is not null)
         {
-            Game gameFound = GameClient.GetGame(Id.Value);
+            Game gameFound = await Client.GetGameAsync(Id.Value);
 
             game = new()
             {
@@ -41,15 +44,15 @@ public partial class EditGame
         }
     }
 
-    private void HandleSubmit()
+    private async Task HandleSubmitAsync()
     {
         if (game?.Id == 0)
         {
-            GameClient.AddGame(game);
+            await Client.AddGameAsync(game);
         }
         else
         {
-            GameClient.UpdateGame(game);
+            await Client.UpdateGameAsync(game!);
         }
 
         NavigationManager.NavigateTo("/");

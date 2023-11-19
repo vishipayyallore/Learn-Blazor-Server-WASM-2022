@@ -13,9 +13,12 @@ public partial class Home
     [Inject]
     public NavigationManager NavigationManager { get; set; } = default!;
 
-    protected override void OnInitialized()
+    [Inject]
+    public GameClient Client { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
     {
-        games = GameClient.GetGames();
+        games = await Client.GetGamesAsync();
     }
 
     private void CreateGame()
@@ -28,12 +31,13 @@ public partial class Home
         NavigationManager.NavigateTo($"/game/{id}");
     }
 
-    private void OnDeleteModalClose(bool accepted)
+    private async Task OnDeleteModalCloseAsync(bool accepted)
     {
         if (accepted)
         {
-            GameClient.DeleteGame(currentGame!.Id);
-            games = GameClient.GetGames();
+            await Client.DeleteGameAsync(currentGame!.Id);
+
+            games = await Client.GetGamesAsync();
         }
     }
 }
